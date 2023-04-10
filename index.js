@@ -5,7 +5,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 
-const cors = require('cors');
+//const cors = require('cors');
 const morgan = require('morgan');
 
 require('dotenv').config();
@@ -32,21 +32,23 @@ const allowedOrigins = [
     'https://polite-bombolone-e1b25c.netlify.app',
     'http://localhost:3000',
   ];
-  
-  const corsOptions = {
-    origin: function (origin, callback) {
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  };
-  
-  app.use(cors(corsOptions));
-  
+
+  app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    );
+    res.header(
+      'Access-Control-Allow-Methods',
+      'GET, POST, PUT, DELETE, OPTIONS'
+    );
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
   
   
   
