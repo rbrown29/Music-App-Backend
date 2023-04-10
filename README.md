@@ -31,3 +31,19 @@
 
 ### Potential Future Plans
 <p> Replace our manually built database with a fully functional third party API so we have access to much more music</p>
+
+## Getting Started
+
+1. Ensure you have Node.js installed.
+2. Create a free [Mongo Atlas](https://www.mongodb.com/atlas/database) database online or start a local MongoDB database.
+3. Create a `server/.env` file with a `MONGO_URL` property set to your MongoDB connection string.
+4. In the terminal, run: `npm install` and `npm install` on the Backend
+
+## Running the Project
+
+1. In the terminal, run: `npm start` on the Frontend and `npm start` on the Backend
+2. Browse to the frontend at [localhost:3000](http://localhost:3000) and the backend at [localhost:3003/songs](http://localhost:3003/songs).
+
+![Music](/Cover1.png?raw=true{:height="50px"width="50px"})
+![Music](/cover2.png?raw=true{:height="50px"width="50px"})
+![Music](/cover3.png?raw=true{:height="50px"width="50px"})
