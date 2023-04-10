@@ -28,7 +28,9 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-app.use(cors());
+app.use(cors(
+    {origin: ['https://64337e30f7271a2f1ecfd301--papaya-baklava-9247d4.netlify.app/'], credentials: true, optionsSuccessStatus: 200}
+));
 app.use(morgan('dev'));
 
 const songsController = require('./controllers/songs.js');
