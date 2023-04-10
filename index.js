@@ -5,7 +5,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 
-//const cors = require('cors');
+const cors = require('cors');
 const morgan = require('morgan');
 
 require('dotenv').config();
@@ -33,19 +33,20 @@ const allowedOrigins = [
     'http://localhost:3000',
   ];
   
-  app.use((req, res, next) => {
-    const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
-      res.setHeader('Access-Control-Allow-Origin', origin);
-    }
-    res.header(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept'
-    );
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Credentials', 'true'); // Add this line
-    next();
-  });
+  const corsOptions = {
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  };
+  
+  app.use(cors(corsOptions));
+  
   
   
   
