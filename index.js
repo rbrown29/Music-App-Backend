@@ -35,18 +35,22 @@ const allowedOrigins = [
 
   const corsOptions = {
     origin: function (origin, callback) {
-      if (allowedOrigins.includes(origin) || !origin) {
+      const allowedOrigins = [
+        'https://polite-bombolone-e1b25c.netlify.app',
+        'http://localhost:3000',
+      ];
+  
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
       }
     },
     credentials: true,
-    allowedHeaders: 'Content-Type,Authorization',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   };
   
   app.use(cors(corsOptions));
+  
   
   
   
