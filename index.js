@@ -28,7 +28,11 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-app.use(cors());
+app.use(cors({
+    origin: ['https://stirring-biscuit-2a8da3.netlify.app/'],
+    credentials: true,
+    optionsSuccessStatus: 200
+}));
 app.use(morgan('dev'));
 
 const songsController = require('./controllers/songs.js');
