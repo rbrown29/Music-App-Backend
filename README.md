@@ -3,11 +3,14 @@
 
 ### Updated React Frontend and Added Node Backend by Richard Brown
 
+### Live Site coming soon
+
 ### Links and Resources to old project
 <a href="https://github.com/rbrown29/React-MusicApp/">GitHub Project Front End</a><br>
 <a href="https://github.com/rbrown29/MusicApp">GitHub Project Backend</a>
 
 ### Links and Resources to new project
+<a href="https://github.com/rbrown29/Music-App-Frontend">GitHub Project Front End</a><br>
 <a href="https://github.com/rbrown29/Music-App-Backend">GitHub Project Backend</a>
 
 ### Original Goal
