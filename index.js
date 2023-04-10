@@ -29,7 +29,7 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(cors(
-    {origin: ['https://music-8w2a.onrender.com/songs', 'https://music-8w2a.onrender.com/favorites'], credentials: true, optionsSuccessStatus: 200}
+    {origin: ['https://music-8w2a.onrender.com'], credentials: true, optionsSuccessStatus: 200}
 ));
 app.use(morgan('dev'));
 
