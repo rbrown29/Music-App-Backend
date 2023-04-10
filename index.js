@@ -5,7 +5,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 
-const cors = require('cors');
+//const cors = require('cors');
 const morgan = require('morgan');
 
 require('dotenv').config();
@@ -33,20 +33,23 @@ const allowedOrigins = [
     'http://localhost:3000',
   ];
   
-  app.use(
-    cors({
-      origin: (origin, callback) => {
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.indexOf(origin) === -1) {
-          const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-          return callback(new Error(msg), false);
-        }
-        return callback(null, true);
-      },
-      credentials: true,
-      optionsSuccessStatus: 200,
-    })
-  );
+  app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    );
+    res.header(
+      'Access-Control-Allow-Methods',
+      'GET, POST, PUT, DELETE, OPTIONS'
+    );
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
+  
   
 app.use(morgan('dev'));
 
