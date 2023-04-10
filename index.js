@@ -28,11 +28,26 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-app.use(cors({
-    origin: ['https://polite-bombolone-e1b25c.netlify.app/'],
-    credentials: true,
-    optionsSuccessStatus: 200
-}));
+const allowedOrigins = [
+    'https://polite-bombolone-e1b25c.netlify.app',
+    'http://localhost:3000',
+  ];
+  
+  app.use(
+    cors({
+      origin: (origin, callback) => {
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) {
+          const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+          return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+      },
+      credentials: true,
+      optionsSuccessStatus: 200,
+    })
+  );
+  
 app.use(morgan('dev'));
 
 const songsController = require('./controllers/songs.js');
