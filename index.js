@@ -28,9 +28,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-app.use(cors(
-    {origin: ['https://music-8w2a.onrender.com'], credentials: true, optionsSuccessStatus: 200}
-));
+app.use(cors());
 app.use(morgan('dev'));
 
 const songsController = require('./controllers/songs.js');
