@@ -29,7 +29,7 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(cors({
-    origin: ['https://app.netlify.com/sites/polite-bombolone-e1b25c'],
+    origin: ['https://polite-bombolone-e1b25c.netlify.app/'],
     credentials: true,
     optionsSuccessStatus: 200
 }));
