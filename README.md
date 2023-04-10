@@ -3,15 +3,18 @@
 
 ### Updated React Frontend and Added Node Backend by Richard Brown
 
-### Live Site coming soon
-
-### Links and Resources to old project
-<a href="https://github.com/rbrown29/React-MusicApp/">GitHub Project Front End</a><br>
-<a href="https://github.com/rbrown29/MusicApp">GitHub Project Backend</a>
+### Live Site Link
+<a href="https://musicapp-3xgy.onrender.com/">Frontend</a>
+<a href="https://music-8w2a.onrender.com/songs">Backend/Songs</a>
+<a href="https://music-8w2a.onrender.com/favorites">Backend/Favorites</a>
 
 ### Links and Resources to new project
 <a href="https://github.com/rbrown29/Music-App-Frontend">GitHub Project Front End</a><br>
 <a href="https://github.com/rbrown29/Music-App-Backend">GitHub Project Backend</a>
+
+### Links and Resources to old project
+<a href="https://github.com/rbrown29/React-MusicApp/">GitHub Project Front End</a><br>
+<a href="https://github.com/rbrown29/MusicApp">GitHub Project Backend</a>
 
 ### Original Goal
 <p>This app was designed to add and delete music to a database. Users can also favorite a song, rate a song, and remove a song from favorites list.</p>
