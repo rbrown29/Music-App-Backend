@@ -29,7 +29,7 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(cors({
-    origin: ['https://stirring-biscuit-2a8da3.netlify.app/'],
+    origin: ['https://app.netlify.com/sites/polite-bombolone-e1b25c'],
     credentials: true,
     optionsSuccessStatus: 200
 }));
