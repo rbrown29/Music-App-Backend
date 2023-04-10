@@ -29,27 +29,9 @@ app.use(session({
     saveUninitialized: true
 }));
 
-  const corsOptions = {
-    origin: function (origin, callback) {
-      const allowedOrigins = [
-        'https://polite-bombolone-e1b25c.netlify.app',
-        'http://localhost:3000',
-      ];
-  
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true,
-  };
-  
-  app.use(cors(corsOptions));
-  
-  
-  
-  
+app.use(cors(
+    { origin: 'http://localhost:3000, https://musicapp-3xgy.onrender.com/', credentials: true }
+));
   
 app.use(morgan('dev'));
 
