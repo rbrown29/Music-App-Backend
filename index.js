@@ -28,10 +28,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-const allowedOrigins = [
-    'https://polite-bombolone-e1b25c.netlify.app',
-    'http://localhost:3000',
-  ];
 
   const corsOptions = {
     origin: function (origin, callback) {
