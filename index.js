@@ -7,6 +7,11 @@ const db = mongoose.connection;
 
 const corsAnywhere = require('cors-anywhere');
 const cors = require('cors');
+app.use(cors(
+    {
+        origin: ['*']
+    }
+));
 const morgan = require('morgan');
 
 require('dotenv').config();
@@ -29,12 +34,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-
-app.use(cors(
-    {
-        origin: ['*']
-    }
-));
 
 app.use(morgan('dev'));
 
