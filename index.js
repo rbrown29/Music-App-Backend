@@ -5,7 +5,14 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 const cors = require('cors');
-app.use(cors());
+app.use(cors(
+    {
+        origin: ['http://localhost:3000', '*', 'https://musicapp-3xgy.onrender.com/'],
+        credentials: true,
+        optionsSuccessStatus: 200,
+        allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'X-Requested-With', 'Accept']
+    }
+));
 const morgan = require('morgan');
 
 require('dotenv').config();
