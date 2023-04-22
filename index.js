@@ -4,12 +4,12 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const db = mongoose.connection;
-
-const corsAnywhere = require('cors-anywhere');
 const cors = require('cors');
 app.use(cors(
     {
-        origin: ['*']
+        origin: ['*'],
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Access-Control-Allow-Origin']
     }
 ));
 const morgan = require('morgan');
@@ -51,17 +51,6 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something went wrong');
-});
-
-const corsProxy = corsAnywhere.createServer({
-    originWhitelist: ['http://localhost:3000', 'https://musicapp-3xgy.onrender.com/'], 
-    requireHeader: ['origin', 'x-requested-with'],
-    removeHeaders: ['cookie', 'cookie2']
-});
-
-app.use('/proxy', (req, res) => {
-    req.url = req.url.replace('/proxy/', '/');
-    corsProxy.emit('request', req, res);
 });
 
 app.listen(Port, () => {
