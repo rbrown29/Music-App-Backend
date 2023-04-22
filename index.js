@@ -10,7 +10,8 @@ app.use(cors(
         origin: [`http://localhost:3000`, `*`, `https://musicapp-3xgy.onrender.com/`],
         credentials: true,
         optionsSuccessStatus: 200,
-        allowedHeaders: [`Content-Type`, `Authorization`, `Origin`, `X-Requested-With`, `Accept`]
+        allowedHeaders: [`Content-Type`, `Authorization`, `Origin`, `X-Requested-With`, `Accept`, `Access-Control-Allow-Origin`, `Access-Control-Allow-Credentials`, `Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`,
+            `Access-Control-Request-Headers`, `Access-Control-Request-Method`]
     }
 ));
 const allowCrossDomain = (req, res, next) => {
