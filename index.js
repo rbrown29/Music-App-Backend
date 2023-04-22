@@ -32,8 +32,9 @@ app.use(session({
 
 app.use(cors(
     {
-        origin: ['http://localhost:3000, https://musicapp-3xgy.onrender.com/'],
-        credentials: true
+        origin: ['*'],
+        credentials: true,
+        methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
     }
 ));
 
