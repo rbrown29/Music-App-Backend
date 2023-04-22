@@ -5,13 +5,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 const cors = require('cors');
-app.use(cors(
-    {
-        origin: ['*'],
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders: ['Content-Type', 'Access-Control-Allow-Origin']
-    }
-));
+app.use(cors());
 const morgan = require('morgan');
 
 require('dotenv').config();
