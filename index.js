@@ -7,7 +7,8 @@ const db = mongoose.connection;
 const cors = require('cors');
 app.use(cors(
     {
-        origin: [`http://localhost:3000`, `*`, `https://musicapp-3xgy.onrender.com/`],
+        origin: [`http://localhost:3000`, `*`, `https://musicapp-3xgy.onrender.com/`, `35.160.120.126`,
+        `44.233.151.27`,`34.211.200.85`],
         credentials: true,
         optionsSuccessStatus: 200,
         allowedHeaders: [`Content-Type`, `Authorization`, `Origin`, `X-Requested-With`, `Accept`, `Access-Control-Allow-Origin`, `Access-Control-Allow-Credentials`, `Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`,
@@ -15,7 +16,7 @@ app.use(cors(
     }
 ));
 const allowCrossDomain = (req, res, next) => {
-    res.header(`Access-Control-Allow-Origin`, `https://musicapp-3xgy.onrender.com/`);
+    res.header(`Access-Control-Allow-Origin`, `https://musicapp-3xgy.onrender.com/`, `*`);
     res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
     res.header(`Access-Control-Allow-Headers`, `Content-Type`);
     next();
